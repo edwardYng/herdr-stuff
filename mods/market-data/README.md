@@ -8,7 +8,9 @@ A Herdr tile with a watchlist of stocks, crypto and FX pairs. It shows live pric
 - **Network access** to:
   - `data.alpaca.markets` and `stream.data.alpaca.markets` (stocks)
   - `api.binance.com` and `stream.binance.com` (crypto)
-  - `query1.finance.yahoo.com` (FX), with `api.frankfurter.dev` (ECB daily rates) as the fallback
+  - `query1.finance.yahoo.com` (FX, and the details popup), with `api.frankfurter.dev` (ECB daily rates) as the fallback
+  - `fc.yahoo.com` (the cookie Yahoo needs for the details popup)
+- **curl** on the PATH (built into Windows 10+ and macOS). The details popup uses it to get Yahoo's cookie, because the mod's `fetch` can't read cookies. Without curl the popup still shows the chart and the basics.
 - **Alpaca API keys**, needed for stocks only. Crypto and FX work without them.
   - Get a free account at <https://alpaca.markets>. The free plan's IEX feed is enough.
   - The mod runs a shell command (`powershell` on Windows, `sh` elsewhere) to read the keys.
@@ -70,6 +72,18 @@ Type a symbol in the box and press Enter:
 | `EUR/USD`, `USDJPY` | FX (Yahoo Finance) |
 | `stock:…`, `crypto:…`, `fx:…` | forces the type |
 
+- Start typing in the box for suggestions (stocks and ETFs on US exchanges, crypto pairs on Binance, including coins Yahoo misses, FX). ↑/↓ choose, Enter or a click adds, Esc closes. Add a type word to narrow the results: `sui crypto`, `coin stock`, `gold etf`, `eur fx` (also `coin`/`token`, `share`/`equity`, `fund`, `forex`/`currency`). Explicit forms like `BTC/USDT` or `stock:…` skip the suggestions.
+- Click a row to open a details popup, like a Yahoo Finance quote page:
+  - name, exchange, currency and market status, plus the pre-market or after-hours price
+  - a chart with 1D / 5D / 1M / 6M / YTD / 1Y / 5Y / Max ranges and a price axis. Hover it for a crosshair showing the price, the change and the time at that point. On a stock's 1D chart, a dashed line marks the previous close.
+  - the key stats for that type of quote:
+    - **Stocks:** previous close, open, bid/ask, day and 52-week ranges, volume, market cap, beta, P/E, EPS, earnings date, dividend, 1y target, plus valuation and financials
+    - **ETFs:** net assets, NAV, yield, YTD return, expense ratio, inception date
+    - **Crypto:** market cap, supply, 24h volume, plus the pair's own 24h stats on Binance
+    - **FX:** bid/ask, ranges, 50- and 200-day averages
+  - an About section (sector, industry, description, website) and a link to the Yahoo page
+
+  The popup reloads every 30 s. Esc or × closes it.
 - Click × on a row to remove it. Use the refresh button to update everything now.
 - Prices stream live (Alpaca and Binance websockets) and are also polled every 15 s. Sparklines are re-fetched every 5 min.
 - If Yahoo fails, FX falls back to ECB daily rates, which are not live.
@@ -79,5 +93,7 @@ Type a symbol in the box and press Enter:
 
 - `main.js`: the tile (UI, watchlist, timers, websockets)
 - `feeds.js`: data sources, symbol parsing, formatting
+- `detail.js`: the details popup (this same mod, opened again as a dialog)
+- `yahoo.js`: Yahoo Finance details, its cookie and crumb, and the popup chart
 - `mod.json`: where the tile docks first and how big it is
 - `*.svg`: icons

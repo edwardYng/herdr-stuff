@@ -2,12 +2,14 @@
 // Stocks via Alpaca (IEX), crypto via Binance, FX via Yahoo (Frankfurter fallback).
 import { View, div, svg } from "gpui-kit";
 import { v_flex, h_flex, InputState, Input } from "gpui-base";
-import { theme, settings } from "herdr";
+import { theme, settings, props, openOverlay } from "herdr";
 import { WebSocket } from "websocket";
 import {
   parseMarket, alpacaKeys, stockHistory, stockQuotes, cryptoHistory, fxHistory,
   ALPACA_STREAM, binanceStream, parseBinance, parseAlpaca, formatPrice, formatChange,
 } from "./feeds.js";
+import { searchMarkets, parseQuery } from "./yahoo.js";
+import { Detail } from "./detail.js";
 
 const HISTORY_MS = 5 * 60e3;   // re-fetch sparklines
 const REFRESH_MS = 15e3;       // prices at least this often (streams tick in between)
@@ -24,6 +26,9 @@ function textW(str, size) {
 
 export default class Markets extends View {
   init(_props, cx) {
+    // Opened again as the popup for one market (see openDetail): a different view entirely.
+    const p = props();
+    if (p?.market) { this.detail = new Detail(p, cx); return; }
     this.list = JSON.parse(localStorage.getItem("list") ?? "null") ??
       ["AAPL", "BTC/USDT", "EUR/USD"].map(parseMarket);
     this.rows = {};            // id → { price, ref, spark, err, flash, flashAt, daily }
@@ -33,9 +38,31 @@ export default class Markets extends View {
     this.dirty = false;
     this.inputErr = "";
 
-    this.input = InputState.new({ placeholder: "Add  AAPL · BTC/USDT · EUR/USD" });
-    this.input.on("submit", (_e, cx) => this.add(this.input.value(), cx));
-    this.input.on("change", (_e, cx) => { if (this.inputErr) { this.inputErr = ""; cx.notify(); } });
+    // Autocomplete: Yahoo search results under the box (see search / suggestions).
+    this.sugg = [];            // [{ market, name, type, exchange }]
+    this.sel = -1;             // highlighted suggestion; Enter adds it
+    this.suggOpen = false;
+    this.searchSeq = 0;
+    this.searchCache = {};
+    this.focused = false;
+
+    this.input = InputState.new({ placeholder: "Search  AAPL · sui crypto · EUR/USD" });
+    this.input.on("submit", (_e, cx) => {
+      const pick = this.suggOpen ? this.sugg[this.sel] : null;
+      if (pick) this.addMarket(pick.market, cx);
+      else if (parseQuery(this.input.value()).type) { this.inputErr = "Pick a suggestion: that's a search, not a symbol"; cx.notify(); }
+      else this.add(this.input.value(), cx);
+    });
+    this.input.on("change", (_e, cx) => { this.inputErr = ""; this.search(cx); cx.notify(); });
+    this.input.on("focus", (_e, cx) => {
+      this.focused = true;
+      if (this.sugg.length && this.input.value().trim()) { this.suggOpen = true; cx.notify(); }
+    });
+    // Close on blur, a beat later, so a press on a suggestion still lands.
+    this.input.on("blur", (_e, cx) => {
+      this.focused = false;
+      cx.spawn(async (cx) => { await cx.sleep(200); if (!this.focused && this.suggOpen) { this.suggOpen = false; cx.notify(); } });
+    });
 
     cx.spawn(async (cx) => {
       this.keys = await alpacaKeys();
@@ -52,6 +79,7 @@ export default class Markets extends View {
   }
 
   async close() {
+    if (this.detail) return;
     this.gen.stock++; this.gen.crypto++;
     await Promise.all(Object.values(this.sockets).map((s) => s.close().catch(() => {})));
   }
@@ -64,13 +92,83 @@ export default class Markets extends View {
   add(text, cx) {
     const m = parseMarket(text);
     if (!m) { this.inputErr = `Can't read "${text.trim()}"`; cx.notify(); return; }
-    if (this.list.some((x) => x.id === m.id)) { this.input.set_value(""); cx.notify(); return; }
-    this.list.push(m);
-    this.save();
+    this.addMarket(m, cx);
+  }
+
+  addMarket(m, cx) {
+    this.closeSuggestions();
     this.input.set_value("");
-    this.refreshOne(m, cx);
-    if (m.kind !== "fx") this.restart(m.kind, cx);
+    if (!this.list.some((x) => x.id === m.id)) {
+      this.list.push(m);
+      this.save();
+      this.refreshOne(m, cx);
+      if (m.kind !== "fx") this.restart(m.kind, cx);
+    }
     cx.notify();
+  }
+
+  // ---- autocomplete --------------------------------------------------------
+
+  closeSuggestions() { this.searchSeq++; this.sugg = []; this.sel = -1; this.suggOpen = false; }
+
+  /** On each keystroke: Yahoo search, debounced, newest answer wins. Explicit forms (BTC/USDT,
+   *  stock:…) skip it, since they already say exactly what to add. */
+  search(cx) {
+    const q = this.input.value().trim();
+    if (!q || q.includes("/") || q.includes(":")) { this.closeSuggestions(); return; }
+    const seq = ++this.searchSeq;
+    const show = (list) => { this.sugg = list; this.sel = list.length ? 0 : -1; this.suggOpen = true; };
+    const key = q.toUpperCase();
+    if (this.searchCache[key]) { show(this.searchCache[key]); return; }
+    cx.spawn(async (cx) => {
+      await cx.sleep(150);
+      if (seq !== this.searchSeq) return;
+      try {
+        const list = await searchMarkets(q);
+        this.searchCache[key] = list;
+        if (seq === this.searchSeq) show(list);
+      } catch { if (seq === this.searchSeq) { this.sugg = []; this.suggOpen = false; } }
+      cx.notify();
+    });
+  }
+
+  /** Up/Down move the highlight, Escape closes. Enter is the input's own submit. */
+  suggestKey(e, cx) {
+    if (!this.suggOpen || !this.sugg.length) return;
+    const n = this.sugg.length;
+    if (e.key === "down") this.sel = (this.sel + 1) % n;
+    else if (e.key === "up") this.sel = (this.sel - 1 + n) % n;
+    else if (e.key === "escape") this.suggOpen = false;
+    else return;
+    cx.stop_propagation();
+    cx.notify();
+  }
+
+  /** The dropdown, laid over the top of the list. */
+  suggestions(t) {
+    if (!this.suggOpen) return null;
+    const box = v_flex().id("suggest").absolute().top(0).left(10).right(10).py(4).rounded(8).border_1()
+      .border_color(t.border).bg(t.popover).shadow_lg();
+    if (!this.sugg.length) {
+      const { terms, type } = parseQuery(this.input.value());
+      return box.child(div().px(10).py(6).text_size(11.5).text_color(t.dim)
+        .child(type ? `No ${type === "Crypto" ? "crypto" : type === "FX" ? "FX" : type === "ETF" ? "ETF" : "stock"} matches for "${terms}".`
+          : `No matches. Enter adds "${this.input.value().trim().toUpperCase()}" as typed.`));
+    }
+    return box.children(this.sugg.map((s, i) => {
+      const on = i === this.sel;
+      const have = this.list.some((x) => x.id === s.market.id);
+      return h_flex().id(`sg-${i}`).mx(4).px(8).py(5).gap(8).rounded(6).items_center().cursor_pointer()
+        .when(on, (el) => el.bg(t.selected ?? t.hover))
+        .on_hover((h, cx) => { if (h && this.sel !== i) { this.sel = i; cx.notify(); } })
+        .on_mouse_down("left", (_e, cx) => { cx.stop_propagation(); this.addMarket(s.market, cx); })
+        .child(v_flex().flex_1().min_w(0)
+          .child(h_flex().gap(6).items_center()
+            .child(div().text_size(12).font_semibold().text_color(t.foreground).child(s.market.sym))
+            .child(div().px(4).rounded(3).bg(t.raised).text_size(9.5).text_color(t.muted).child(s.type)))
+          .child(div().text_size(10.5).text_color(t.muted).truncate().child(s.name)))
+        .child(div().flex_shrink_0().text_size(10.5).text_color(t.dim).child(have ? "✓ added" : s.exchange));
+    }));
   }
 
   remove(id, cx) {
@@ -80,6 +178,14 @@ export default class Markets extends View {
     this.save();
     if (m && m.kind !== "fx") this.restart(m.kind, cx);
     cx.notify();
+  }
+
+  /** Clicking a row: a Yahoo Finance–style popup for that market. */
+  openDetail(m) {
+    const r = this.rows[m.id] ?? {};
+    // FX has the shortest page on Yahoo too: a shorter dialog.
+    return openOverlay({ mod: "market-data", kind: "dialog", width: 680, height: m.kind === "fx" ? 0.62 : 0.88,
+      props: { market: m, price: r.price ?? null, ref: r.ref ?? null } });
   }
 
   // ---- history / polling ---------------------------------------------------
@@ -250,6 +356,7 @@ export default class Markets extends View {
   }
 
   render(cx) {
+    if (this.detail) return this.detail.render(cx);
     const t = theme();
     const up = t.ansi2, down = t.ansi1;
     const header = h_flex().h(34).px(12).items_center().justify_between()
@@ -262,7 +369,8 @@ export default class Markets extends View {
           .on_click((_e, cx) => this.refreshNow(cx))
           .child(this.busy ? svg("mods/market-data/refresh.svg").size(13).spin(900) : svg("mods/market-data/refresh.svg").size(13))));
 
-    const field = v_flex().px(10).pb(8).gap(4)
+    const field = v_flex().id("add-field").px(10).pb(8).gap(4)
+      .on_key_down((e, cx) => this.suggestKey(e, cx))
       .child(Input.new(this.input).h(30).px(9).rounded(7).border_1()
         .border_color(this.inputErr ? down : t.input).bg(t.background).text_size(12).text_color(t.foreground))
       .when(Boolean(this.inputErr), (el) => el.child(div().px(2).text_size(10.5).text_color(down).child(this.inputErr)));
@@ -281,8 +389,11 @@ export default class Markets extends View {
       const rising = r.price != null && r.ref != null ? r.price >= r.ref : true;
       const flashing = r.flash && Date.now() - r.flashAt < FLASH_MS;
       const priceColor = flashing ? (r.flash === "up" ? up : down) : t.foreground;
+      // While the dropdown is over the list, rows take no presses: a click on a suggestion
+      // must not also open (or remove) the row underneath it.
+      const live = !this.suggOpen;
       return h_flex().id(`row-${m.id}`).h(40).px(12).items_center()
-        .hover((s) => s.bg(t.hover))
+        .when(live, (el) => el.cursor_pointer().hover((s) => s.bg(t.hover)).on_click((_e, cx) => this.openDetail(m)))
         .child(div().w(symW).mr(12).flex_shrink_0().truncate().text_size(12).font_semibold().text_color(t.foreground)
           .child(m.sym))
         .child(this.spark(r.spark, rising ? up : down, sparkW))
@@ -292,9 +403,9 @@ export default class Markets extends View {
           .child(div().text_size(10.5).text_color(rising ? up : down)
             .child(chg)))
         .child(h_flex().id(`x-${m.id}`).w(16).h(16).flex_shrink_0().rounded(4).items_center().justify_center()
-          .text_size(12).text_color(t.dim).cursor_pointer()
-          .hover((s) => s.text_color(t.foreground).bg(t.raised))
-          .on_click((_e, cx) => this.remove(m.id, cx))
+          .text_size(12).text_color(t.dim)
+          .when(live, (el) => el.cursor_pointer().hover((s) => s.text_color(t.foreground).bg(t.raised))
+            .on_click((_e, cx) => { cx.stop_propagation(); this.remove(m.id, cx); }))
           .child("×"));
     });
 
@@ -303,8 +414,10 @@ export default class Markets extends View {
       .child(header)
       .child(field)
       .child(div().h(1).bg(t.border))
-      .child(v_flex().id("market-rows").flex_1().min_h(0).overflow_y_scrollbar().py(4).children(
-        rows.length ? rows : [div().p(14).text_size(11.5).text_color(t.dim).child("Nothing watched yet.")]))
+      .child(div().relative().flex_1().min_h(0).flex_col()
+        .child(v_flex().id("market-rows").size_full().overflow_y_scrollbar().py(4).children(
+          rows.length ? rows : [div().p(14).text_size(11.5).text_color(t.dim).child("Nothing watched yet.")]))
+        .when(this.suggOpen, (el) => el.child(this.suggestions(t))))
       .when(this.infoHover || this.infoPinned, (el) => el.child(this.info(t)))
       .child(div().h(1).bg(t.border))
       .child(h_flex().px(12).py(5).items_center().justify_between()
