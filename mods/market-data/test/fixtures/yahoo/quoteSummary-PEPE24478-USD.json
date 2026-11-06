@@ -1,0 +1,290 @@
+{
+  "assetProfile": {
+    "website": "https://www.pepe.vip/",
+    "twitter": "https://twitter.com/pepecoineth",
+    "name": "Pepe",
+    "startDate": "2023-04-17",
+    "description": "Pepe (PEPE) is a cryptocurrency launched in 2023and operates on the Ethereum platform. Pepe has a current supply of 413,772,350,098,130.40630647. The last known price of Pepe is 0.00000489 USD and is down -1.21 over the last 24 hours. It is currently trading on 729 active market(s) with $522,330,690.61 traded over the last 24 hours. More information can be found at https://www.pepe.vip/.",
+    "maxAge": 86400
+  },
+  "summaryDetail": {
+    "maxAge": 1,
+    "priceHint": {
+      "raw": 5,
+      "fmt": "5",
+      "longFmt": "5"
+    },
+    "previousClose": {
+      "raw": 0.0000047821377,
+      "fmt": "0.00000"
+    },
+    "open": {
+      "raw": 0.0000047821377,
+      "fmt": "0.00000"
+    },
+    "dayLow": {
+      "raw": 0.0000047821377,
+      "fmt": "0.00000"
+    },
+    "dayHigh": {
+      "raw": 0.000004910294,
+      "fmt": "0.00000"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 0.0000047821377,
+      "fmt": "0.00000"
+    },
+    "regularMarketOpen": {
+      "raw": 0.0000047821377,
+      "fmt": "0.00000"
+    },
+    "regularMarketDayLow": {
+      "raw": 0.0000047821377,
+      "fmt": "0.00000"
+    },
+    "regularMarketDayHigh": {
+      "raw": 0.000004910294,
+      "fmt": "0.00000"
+    },
+    "dividendRate": {},
+    "dividendYield": {},
+    "exDividendDate": {},
+    "payoutRatio": {},
+    "fiveYearAvgDividendYield": {},
+    "beta": {},
+    "forwardPE": {},
+    "volume": {
+      "raw": 483384192,
+      "fmt": "483.38M",
+      "longFmt": "483,384,192"
+    },
+    "regularMarketVolume": {
+      "raw": 483384192,
+      "fmt": "483.38M",
+      "longFmt": "483,384,192"
+    },
+    "averageVolume": {
+      "raw": 341607092,
+      "fmt": "341.61M",
+      "longFmt": "341,607,092"
+    },
+    "averageVolume10days": {
+      "raw": 692571700,
+      "fmt": "692.57M",
+      "longFmt": "692,571,700"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 692571700,
+      "fmt": "692.57M",
+      "longFmt": "692,571,700"
+    },
+    "bid": {},
+    "ask": {},
+    "bidSize": {},
+    "askSize": {},
+    "marketCap": {
+      "raw": 2017764480,
+      "fmt": "2.02B",
+      "longFmt": "2,017,764,480"
+    },
+    "nonDilutedMarketCap": {},
+    "yield": {},
+    "ytdReturn": {},
+    "qtdReturn": {},
+    "totalAssets": {},
+    "expireDate": {},
+    "strikePrice": {},
+    "openInterest": {},
+    "fiftyTwoWeekLow": {
+      "raw": 0.000002,
+      "fmt": "0.00000"
+    },
+    "fiftyTwoWeekHigh": {
+      "raw": 0.000007,
+      "fmt": "0.00001"
+    },
+    "allTimeHigh": {
+      "raw": 0.000028,
+      "fmt": "0.00003"
+    },
+    "allTimeLow": {
+      "raw": 0,
+      "fmt": "0.00000"
+    },
+    "fulldayPrice": {
+      "raw": 0.00000488,
+      "fmt": "0.00000"
+    },
+    "fulldayChange": {
+      "raw": -1.8000037e-7,
+      "fmt": "-0.00000"
+    },
+    "fulldayChangePercent": {
+      "raw": -0.035573196,
+      "fmt": "-3.56%"
+    },
+    "priceToSalesTrailing12Months": {},
+    "fiftyDayAverage": {
+      "raw": 0.00000428,
+      "fmt": "0.00000"
+    },
+    "twoHundredDayAverage": {
+      "raw": 0.00000355,
+      "fmt": "0.00000"
+    },
+    "trailingAnnualDividendRate": {},
+    "trailingAnnualDividendYield": {},
+    "navPrice": {},
+    "currency": "USD",
+    "fromCurrency": "PEPE24478",
+    "toCurrency": "USD=X",
+    "lastMarket": "Coinbase",
+    "coinMarketCapLink": "https://coinmarketcap.com/currencies/pepe",
+    "volume24Hr": {
+      "raw": 483384192,
+      "fmt": "483.38M",
+      "longFmt": "483,384,192.00"
+    },
+    "volumeAllCurrencies": {
+      "raw": 483384192,
+      "fmt": "483.38M",
+      "longFmt": "483,384,192.00"
+    },
+    "circulatingSupply": {
+      "raw": 413772351012864,
+      "fmt": "413.77T",
+      "longFmt": "413,772,351,012,864.00"
+    },
+    "algorithm": null,
+    "maxSupply": {
+      "raw": 413772351012864,
+      "fmt": "413.77T",
+      "longFmt": "413,772,351,012,864.00"
+    },
+    "totalSupply": {
+      "raw": 413772351012864,
+      "fmt": "413.77T",
+      "longFmt": "413,772,351,012,864.00"
+    },
+    "startDate": {
+      "raw": 1681689600,
+      "fmt": "2023-04-17"
+    },
+    "tradeable": false,
+    "fullyDilutedValue": {
+      "raw": 2019208981,
+      "fmt": "2.02B",
+      "longFmt": "2,019,208,981.00"
+    },
+    "volume24HrMarketCapPercent": {
+      "raw": 0.23956423,
+      "fmt": "23.96%"
+    }
+  },
+  "price": {
+    "maxAge": 1,
+    "preMarketChange": {},
+    "preMarketPrice": {},
+    "postMarketChange": {},
+    "postMarketPrice": {},
+    "regularMarketChangePercent": {
+      "raw": -0.035573196,
+      "fmt": "-3.56%"
+    },
+    "regularMarketChange": {
+      "raw": -1.8000037e-7,
+      "fmt": "-0.00000"
+    },
+    "regularMarketTime": 1793931003,
+    "priceHint": {
+      "raw": 5,
+      "fmt": "5",
+      "longFmt": "5"
+    },
+    "regularMarketPrice": {
+      "raw": 0.00000488,
+      "fmt": "0.00000"
+    },
+    "regularMarketDayHigh": {
+      "raw": 0.000004910294,
+      "fmt": "0.00000"
+    },
+    "regularMarketDayLow": {
+      "raw": 0.0000047821377,
+      "fmt": "0.00000"
+    },
+    "regularMarketVolume": {
+      "raw": 483384192,
+      "fmt": "483.38M",
+      "longFmt": "483,384,192.00"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 692571700,
+      "fmt": "692.57M",
+      "longFmt": "692,571,700"
+    },
+    "averageDailyVolume3Month": {
+      "raw": 341607092,
+      "fmt": "341.61M",
+      "longFmt": "341,607,092"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 0.0000047821377,
+      "fmt": "0.00000"
+    },
+    "regularMarketSource": "FREE_REALTIME",
+    "regularMarketOpen": {
+      "raw": 0.0000047821377,
+      "fmt": "0.00000"
+    },
+    "strikePrice": {},
+    "openInterest": {},
+    "fulldayChangePercent": {
+      "raw": -0.035573196,
+      "fmt": "-3.56%"
+    },
+    "fulldayChange": {
+      "raw": -1.8000037e-7,
+      "fmt": "-0.00000"
+    },
+    "fulldayPrice": {
+      "raw": 0.00000488,
+      "fmt": "0.00000"
+    },
+    "exchange": "CCC",
+    "exchangeName": "CCC",
+    "exchangeDataDelayedBy": 0,
+    "marketState": "REGULAR",
+    "quoteType": "CRYPTOCURRENCY",
+    "symbol": "PEPE24478-USD",
+    "underlyingSymbol": null,
+    "shortName": "Pepe USD",
+    "longName": "Pepe USD",
+    "currency": "USD",
+    "quoteSourceName": "CoinMarketCap",
+    "currencySymbol": "$",
+    "fromCurrency": "PEPE24478",
+    "toCurrency": "USD=X",
+    "lastMarket": "Coinbase",
+    "volume24Hr": {
+      "raw": 483384192,
+      "fmt": "483.38M",
+      "longFmt": "483,384,192.00"
+    },
+    "volumeAllCurrencies": {
+      "raw": 483384192,
+      "fmt": "483.38M",
+      "longFmt": "483,384,192.00"
+    },
+    "circulatingSupply": {
+      "raw": 413772351012864,
+      "fmt": "413.77T",
+      "longFmt": "413,772,351,012,864.00"
+    },
+    "marketCap": {
+      "raw": 2017764480,
+      "fmt": "2.02B",
+      "longFmt": "2,017,764,480.00"
+    }
+  }
+}

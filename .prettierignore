@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+types/
+package-lock.json
+**/*.d.ts
+**/jsconfig.json
+**/test/fixtures/

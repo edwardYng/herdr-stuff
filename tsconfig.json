@@ -1,0 +1,25 @@
+{
+  // Type-checks the mods' runtime code (plain JS + JSDoc) against Herdr's own declarations.
+  // Nothing is emitted: Herdr loads the .js files as they are.
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    // Herdr's runtime is not Node and not a browser: only ES2022 + what types/gpui-kit.d.ts declares.
+    "lib": ["ES2022"],
+    "types": [],
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    // A View sets its fields in init(), which TypeScript can't see as definite assignment
+    // (see the generated jsconfig.json's notes). Herdr's recommended setting.
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "paths": {
+      "herdr": ["./types/herdr.d.ts"]
+    }
+  },
+  "include": ["types/gpui-kit.d.ts", "mods/*/main.js", "mods/*/src/**/*.js"]
+}

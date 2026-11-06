@@ -1,0 +1,427 @@
+{
+  "assetProfile": {
+    "longBusinessSummary": "The trust seeks to achieve its investment objective by holding a portfolio of the common stocks that are included in the index (the “Portfolio”), with the weight of each stock in the Portfolio substantially corresponding to the weight of such stock in the index.",
+    "maxAge": 86400
+  },
+  "fundProfile": {
+    "maxAge": 1,
+    "styleBoxUrl": "https://s.yimg.com/lq/i/fi/3_0stylelargeeq2.gif",
+    "family": "State Street Investment Management",
+    "categoryName": "Large Blend",
+    "legalType": "Exchange Traded Fund",
+    "managementInfo": {
+      "managerName": null,
+      "managerBio": null,
+      "startdate": {}
+    },
+    "feesExpensesInvestment": {
+      "annualReportExpenseRatio": {
+        "raw": 0.000945,
+        "fmt": "0.09%"
+      },
+      "frontEndSalesLoad": {},
+      "deferredSalesLoad": {},
+      "twelveBOne": {},
+      "netExpRatio": {},
+      "grossExpRatio": {},
+      "annualHoldingsTurnover": {
+        "raw": 0.03,
+        "fmt": "3.00%"
+      },
+      "totalNetAssets": {
+        "raw": 504496.28,
+        "fmt": "504,496.28"
+      },
+      "projectionValues": {}
+    },
+    "feesExpensesInvestmentCat": {
+      "annualReportExpenseRatio": {
+        "raw": 0.0072176997,
+        "fmt": "0.72%"
+      },
+      "frontEndSalesLoad": {},
+      "deferredSalesLoad": {},
+      "twelveBOne": {},
+      "annualHoldingsTurnover": {
+        "raw": 0.9461,
+        "fmt": "94.61%"
+      },
+      "totalNetAssets": {
+        "raw": 504496.28,
+        "fmt": "504,496.28"
+      },
+      "projectionValuesCat": {}
+    },
+    "initInvestment": {},
+    "initIraInvestment": {},
+    "initAipInvestment": {},
+    "subseqInvestment": {},
+    "subseqIraInvestment": {},
+    "subseqAipInvestment": {},
+    "brokerages": []
+  },
+  "summaryDetail": {
+    "maxAge": 1,
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "previousClose": {
+      "raw": 766.81,
+      "fmt": "766.81"
+    },
+    "open": {
+      "raw": 765.47,
+      "fmt": "765.47"
+    },
+    "dayLow": {
+      "raw": 732.71,
+      "fmt": "732.71"
+    },
+    "dayHigh": {
+      "raw": 765.97,
+      "fmt": "765.97"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 766.81,
+      "fmt": "766.81"
+    },
+    "regularMarketOpen": {
+      "raw": 765.47,
+      "fmt": "765.47"
+    },
+    "regularMarketDayLow": {
+      "raw": 732.71,
+      "fmt": "732.71"
+    },
+    "regularMarketDayHigh": {
+      "raw": 765.97,
+      "fmt": "765.97"
+    },
+    "dividendRate": {},
+    "dividendYield": {},
+    "exDividendDate": {},
+    "payoutRatio": {},
+    "fiveYearAvgDividendYield": {},
+    "beta": {},
+    "trailingPE": {
+      "raw": 23.319904,
+      "fmt": "23.32"
+    },
+    "forwardPE": {},
+    "volume": {
+      "raw": 120886017,
+      "fmt": "120.89M",
+      "longFmt": "120,886,017"
+    },
+    "regularMarketVolume": {
+      "raw": 120886017,
+      "fmt": "120.89M",
+      "longFmt": "120,886,017"
+    },
+    "averageVolume": {
+      "raw": 41026920,
+      "fmt": "41.03M",
+      "longFmt": "41,026,920"
+    },
+    "averageVolume10days": {
+      "raw": 44186200,
+      "fmt": "44.19M",
+      "longFmt": "44,186,200"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 44186200,
+      "fmt": "44.19M",
+      "longFmt": "44,186,200"
+    },
+    "bid": {
+      "raw": 734.4,
+      "fmt": "734.40"
+    },
+    "ask": {
+      "raw": 734.57,
+      "fmt": "734.57"
+    },
+    "bidSize": {
+      "raw": 8000,
+      "fmt": "8k",
+      "longFmt": "8,000"
+    },
+    "askSize": {
+      "raw": 64000,
+      "fmt": "64k",
+      "longFmt": "64,000"
+    },
+    "marketCap": {},
+    "nonDilutedMarketCap": {},
+    "yield": {
+      "raw": 0.01,
+      "fmt": "1.00%"
+    },
+    "ytdReturn": {},
+    "qtdReturn": {},
+    "totalAssets": {
+      "raw": 796865200128,
+      "fmt": "796.87B",
+      "longFmt": "796,865,200,128"
+    },
+    "expireDate": {},
+    "strikePrice": {},
+    "openInterest": {},
+    "fiftyTwoWeekLow": {
+      "raw": 629.28,
+      "fmt": "629.28"
+    },
+    "fiftyTwoWeekHigh": {
+      "raw": 781.62,
+      "fmt": "781.62"
+    },
+    "allTimeHigh": {
+      "raw": 781.62,
+      "fmt": "781.62"
+    },
+    "allTimeLow": {
+      "raw": 42.8125,
+      "fmt": "42.81"
+    },
+    "fulldayPrice": {
+      "raw": 733,
+      "fmt": "733.00"
+    },
+    "fulldayChange": {
+      "raw": -31.47998,
+      "fmt": "-31.48"
+    },
+    "fulldayChangePercent": {
+      "raw": -0.041053165,
+      "fmt": "-4.11%"
+    },
+    "priceToSalesTrailing12Months": {},
+    "fiftyDayAverage": {
+      "raw": 767.0576,
+      "fmt": "767.06"
+    },
+    "twoHundredDayAverage": {
+      "raw": 729.913,
+      "fmt": "729.91"
+    },
+    "trailingAnnualDividendRate": {
+      "raw": 5.662,
+      "fmt": "5.66"
+    },
+    "trailingAnnualDividendYield": {
+      "raw": 0.0073838374,
+      "fmt": "0.74%"
+    },
+    "navPrice": {
+      "raw": 766.4349,
+      "fmt": "766.43"
+    },
+    "currency": "USD",
+    "fromCurrency": null,
+    "toCurrency": null,
+    "lastMarket": null,
+    "coinMarketCapLink": null,
+    "volume24Hr": {},
+    "volumeAllCurrencies": {},
+    "circulatingSupply": {},
+    "algorithm": null,
+    "maxSupply": {},
+    "totalSupply": {},
+    "startDate": {},
+    "tradeable": false,
+    "fullyDilutedValue": {},
+    "volume24HrMarketCapPercent": {}
+  },
+  "defaultKeyStatistics": {
+    "maxAge": 1,
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "enterpriseValue": {},
+    "forwardPE": {},
+    "profitMargins": {},
+    "morningStarOverallRating": {},
+    "morningStarRiskRating": {},
+    "category": "Large Blend",
+    "bookValue": {},
+    "priceToBook": {},
+    "annualReportExpenseRatio": {},
+    "ytdReturn": {
+      "raw": 0.1332801,
+      "fmt": "13.33%"
+    },
+    "qtdReturn": {},
+    "beta3Year": {
+      "raw": 0.97,
+      "fmt": "0.97"
+    },
+    "totalAssets": {
+      "raw": 796865200128,
+      "fmt": "796.87B",
+      "longFmt": "796,865,200,128"
+    },
+    "yield": {
+      "raw": 0.01,
+      "fmt": "1.00%"
+    },
+    "fundFamily": "State Street Investment Management",
+    "fundInceptionDate": {
+      "raw": 727660800,
+      "fmt": "1993-01-22"
+    },
+    "legalType": "Exchange Traded Fund",
+    "threeYearAverageReturn": {
+      "raw": 0.2229608,
+      "fmt": "22.30%"
+    },
+    "fiveYearAverageReturn": {
+      "raw": 0.1192181,
+      "fmt": "11.92%"
+    },
+    "priceToSalesTrailing12Months": {},
+    "lastFiscalYearEnd": {},
+    "nextFiscalYearEnd": {},
+    "mostRecentQuarter": {},
+    "earningsQuarterlyGrowth": {},
+    "revenueQuarterlyGrowth": {},
+    "netIncomeToCommon": {},
+    "trailingEps": {},
+    "forwardEps": {},
+    "pegRatio": {},
+    "lastSplitFactor": null,
+    "lastSplitDate": {},
+    "enterpriseToRevenue": {},
+    "enterpriseToEbitda": {},
+    "52WeekChange": {},
+    "SandP52WeekChange": {},
+    "lastDividendValue": {},
+    "lastDividendDate": {},
+    "lastCapGain": {},
+    "annualHoldingsTurnover": {},
+    "latestFundingDate": {},
+    "latestAmountRaised": {},
+    "latestImpliedValuation": {},
+    "latestShareClass": null,
+    "leadInvestor": null,
+    "fundingToDate": {},
+    "totalFundingRounds": {}
+  },
+  "price": {
+    "maxAge": 1,
+    "preMarketChangePercent": {
+      "raw": -0.0018257536,
+      "fmt": "-0.18%"
+    },
+    "preMarketChange": {
+      "raw": -1.4000244,
+      "fmt": "-1.40"
+    },
+    "preMarketTime": 1793888999,
+    "preMarketPrice": {
+      "raw": 765.42,
+      "fmt": "765.42"
+    },
+    "preMarketSource": "FREE_REALTIME",
+    "postMarketChangePercent": {
+      "raw": 0.0017094007,
+      "fmt": "0.17%"
+    },
+    "postMarketChange": {
+      "raw": 1.2529907,
+      "fmt": "1.25"
+    },
+    "postMarketTime": 1793926764,
+    "postMarketPrice": {
+      "raw": 734.253,
+      "fmt": "734.25"
+    },
+    "postMarketSource": "FREE_REALTIME",
+    "regularMarketChangePercent": {
+      "raw": -0.044091802,
+      "fmt": "-4.41%"
+    },
+    "regularMarketChange": {
+      "raw": -33.81,
+      "fmt": "-33.81"
+    },
+    "regularMarketTime": 1793912400,
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "regularMarketPrice": {
+      "raw": 733,
+      "fmt": "733.00"
+    },
+    "regularMarketDayHigh": {
+      "raw": 765.97,
+      "fmt": "765.97"
+    },
+    "regularMarketDayLow": {
+      "raw": 732.71,
+      "fmt": "732.71"
+    },
+    "regularMarketVolume": {
+      "raw": 120886017,
+      "fmt": "120.89M",
+      "longFmt": "120,886,017.00"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 44186200,
+      "fmt": "44.19M",
+      "longFmt": "44,186,200"
+    },
+    "averageDailyVolume3Month": {
+      "raw": 41026920,
+      "fmt": "41.03M",
+      "longFmt": "41,026,920"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 766.81,
+      "fmt": "766.81"
+    },
+    "regularMarketSource": "FREE_REALTIME",
+    "regularMarketOpen": {
+      "raw": 765.47,
+      "fmt": "765.47"
+    },
+    "strikePrice": {},
+    "openInterest": {},
+    "fulldayChangePercent": {
+      "raw": -0.041053165,
+      "fmt": "-4.11%"
+    },
+    "fulldayChange": {
+      "raw": -31.47998,
+      "fmt": "-31.48"
+    },
+    "fulldayPrice": {
+      "raw": 733,
+      "fmt": "733.00"
+    },
+    "exchange": "PCX",
+    "exchangeName": "NYSEArca",
+    "exchangeDataDelayedBy": 0,
+    "marketState": "POSTPOST",
+    "quoteType": "ETF",
+    "symbol": "SPY",
+    "underlyingSymbol": null,
+    "shortName": "State Street SPDR S&P 500 ETF T",
+    "longName": "State Street SPDR S&P 500 ETF Trust",
+    "currency": "USD",
+    "quoteSourceName": "Nasdaq Real Time Price",
+    "currencySymbol": "$",
+    "fromCurrency": null,
+    "toCurrency": null,
+    "lastMarket": null,
+    "volume24Hr": {},
+    "volumeAllCurrencies": {},
+    "circulatingSupply": {},
+    "marketCap": {}
+  }
+}

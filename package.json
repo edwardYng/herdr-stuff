@@ -1,0 +1,33 @@
+{
+  "name": "herdr-stuff",
+  "private": true,
+  "type": "module",
+  "description": "Herdr mods. Each mods/<name> folder is loaded by Herdr as-is: plain ES modules, no build step.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:unit": "vitest run --project unit",
+    "test:integration": "vitest run --project integration",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc -p tsconfig.json",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm test",
+    "herdr:check": "herdr-app check mods/market-data",
+    "sync-types": "node scripts/sync-types.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitest/coverage-v8": "^5.1.0",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

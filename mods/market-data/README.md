@@ -19,7 +19,7 @@ A Herdr tile with a watchlist of stocks, crypto and FX pairs. It shows live pric
 
 The mod reads two environment variables: `APCA_API_KEY_ID` and `APCA_API_SECRET_KEY`. It checks for them again every 15 s, so you don't need to restart Herdr after setting them.
 
-**Windows:** set them as *User* variables (the mod reads them from there):
+**Windows:** set them as _User_ variables (the mod reads them from there):
 
 ```powershell
 [Environment]::SetEnvironmentVariable('APCA_API_KEY_ID', '<your key id>', 'User')
@@ -65,12 +65,12 @@ herdr-app do pane.split '{"direction":"right","mod":"market-data"}'
 
 Type a symbol in the box and press Enter:
 
-| Input | Treated as |
-|---|---|
-| `AAPL`, `NVDA` | stock (Alpaca) |
-| `BTC/USDT`, `ETHUSDT`, `SOL-USDC` | crypto (Binance) |
-| `EUR/USD`, `USDJPY` | FX (Yahoo Finance) |
-| `stock:…`, `crypto:…`, `fx:…` | forces the type |
+| Input                             | Treated as         |
+| --------------------------------- | ------------------ |
+| `AAPL`, `NVDA`                    | stock (Alpaca)     |
+| `BTC/USDT`, `ETHUSDT`, `SOL-USDC` | crypto (Binance)   |
+| `EUR/USD`, `USDJPY`               | FX (Yahoo Finance) |
+| `stock:…`, `crypto:…`, `fx:…`     | forces the type    |
 
 - Start typing in the box for suggestions (stocks and ETFs on US exchanges, crypto pairs on Binance, including coins Yahoo misses, FX). ↑/↓ choose, Enter or a click adds, Esc closes. Add a type word to narrow the results: `sui crypto`, `coin stock`, `gold etf`, `eur fx` (also `coin`/`token`, `share`/`equity`, `fund`, `forex`/`currency`). Explicit forms like `BTC/USDT` or `stock:…` skip the suggestions.
 - Click a row to open a details popup, like a Yahoo Finance quote page:
@@ -84,6 +84,7 @@ Type a symbol in the box and press Enter:
   - an About section (sector, industry, description, website) and a link to the Yahoo page
 
   The popup reloads every 30 s. Esc or × closes it.
+
 - Click × on a row to remove it. Use the refresh button to update everything now.
 - Prices stream live (Alpaca and Binance websockets) and are also polled every 15 s. Sparklines are re-fetched every 5 min.
 - If Yahoo fails, FX falls back to ECB daily rates, which are not live.
@@ -91,9 +92,17 @@ Type a symbol in the box and press Enter:
 
 ## Files
 
-- `main.js`: the tile (UI, watchlist, timers, websockets)
-- `feeds.js`: data sources, symbol parsing, formatting
-- `detail.js`: the details popup (this same mod, opened again as a dialog)
-- `yahoo.js`: Yahoo Finance details, its cookie and crumb, and the popup chart
+Plain ES modules, no build step. `ARCHITECTURE.md` has the layers, runtime rules and contracts.
+
+- `main.js`: the entry. Opens the watchlist tile, or the details popup when opened with a `market` prop (this same mod, opened again as a dialog)
+- `src/domain/`: pure functions: markets and symbols, formatting, chart maths, Yahoo quote → sections, search ranking, stream messages
+- `src/data/`: network clients (Alpaca, Binance, FX, Yahoo and its cookie/crumb session), wired up by `index.js`
+- `src/state/`: behaviour without pixels
+  - `watchlist.js`: the list (saved), rows, polling and refresh
+  - `streams.js`: the Alpaca and Binance websockets, with backoff
+  - `search.js`: the add box and its autocomplete
+  - `detail.js`: the popup's data (quote, charts per range, Binance 24h, hover)
+- `src/ui/`: render functions: `tile-view.js`, `suggestions-view.js`, `spark.js`, `info-panel.js`, `detail-view.js`, `chart-view.js`, `theme.js`
+- `test/`: unit tests (domain, state), integration tests (data clients against recorded fixtures, views rendered through stubs), fixtures
 - `mod.json`: where the tile docks first and how big it is
 - `*.svg`: icons

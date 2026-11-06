@@ -1,0 +1,650 @@
+{
+  "assetProfile": {
+    "address1": "3555 Farnam Street",
+    "city": "Omaha",
+    "state": "NE",
+    "zip": "68131",
+    "country": "United States",
+    "phone": "402 346 1400",
+    "website": "https://www.berkshirehathaway.com",
+    "industry": "Insurance - Diversified",
+    "industryKey": "insurance-diversified",
+    "industryDisp": "Insurance - Diversified",
+    "sector": "Financial Services",
+    "sectorKey": "financial-services",
+    "sectorDisp": "Financial Services",
+    "longBusinessSummary": "Berkshire Hathaway Inc., together with its subsidiaries, engages in the insurance, freight rail transportation, and utility businesses. The company provides property, casualty, life, accident, and health insurance and reinsurance; operates railroad systems in North America; generates, transmits, stores, and distributes electricity from natural gas, coal, wind, solar, hydroelectric, nuclear, and geothermal sources; operates natural gas distribution and storage facilities, interstate pipelines, liquefied natural gas facilities, and compressor and meter stations; and holds interest in coal mining assets. It manufactures boxed chocolates and other confectionery products; specialty chemicals, metal cutting tools, and components for aerospace and power generation applications; prefabricated and site-built residential homes, flooring products; insulation, roofing, and engineered products; building and engineered components; paints and coatings; and bricks and masonry products, as well as offers manufactured and site-built home construction, and related lending and financial services. In addition, the company provides recreational vehicles, apparel, footwear, toys, jewelry, custom picture framing products, alkaline batteries, logistics services, and professional aviation training and shared aircraft ownership programs; castings, forgings, fasteners/fastener systems, aerostructures, and precision components; and cobalt, nickel, and titanium alloys. Further, it distributes televisions and information, and grocery and non-food consumer products; franchises and services quick service restaurants; and distributes electronic components. Additionally, it retails automobiles; furniture, bedding, and accessories; household appliances, electronics, and floor coverings; watches, home decor and repair services; sells kitchenware; and motorcycle clothing and equipment. The company was incorporated in 1998 and is headquartered in Omaha, Nebraska.",
+    "fullTimeEmployees": 387800,
+    "auditRisk": 10,
+    "boardRisk": 10,
+    "compensationRisk": 9,
+    "shareHolderRightsRisk": 10,
+    "overallRisk": 10,
+    "governanceEpochDate": 1793491200,
+    "compensationAsOfEpochDate": 1767139200,
+    "maxAge": 86400
+  },
+  "summaryDetail": {
+    "maxAge": 1,
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "previousClose": {
+      "raw": 579.09,
+      "fmt": "579.09"
+    },
+    "open": {
+      "raw": 584.23,
+      "fmt": "584.23"
+    },
+    "dayLow": {
+      "raw": 571.1006,
+      "fmt": "571.10"
+    },
+    "dayHigh": {
+      "raw": 586.3,
+      "fmt": "586.30"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 579.09,
+      "fmt": "579.09"
+    },
+    "regularMarketOpen": {
+      "raw": 584.23,
+      "fmt": "584.23"
+    },
+    "regularMarketDayLow": {
+      "raw": 571.1006,
+      "fmt": "571.10"
+    },
+    "regularMarketDayHigh": {
+      "raw": 586.3,
+      "fmt": "586.30"
+    },
+    "dividendRate": {},
+    "dividendYield": {
+      "raw": 0,
+      "fmt": "0.00%"
+    },
+    "exDividendDate": {},
+    "payoutRatio": {
+      "raw": 0,
+      "fmt": "0.00%"
+    },
+    "fiveYearAvgDividendYield": {},
+    "beta": {
+      "raw": 0.571,
+      "fmt": "0.57"
+    },
+    "trailingPE": {
+      "raw": 14.394619,
+      "fmt": "14.39"
+    },
+    "forwardPE": {
+      "raw": 25.51459,
+      "fmt": "25.51"
+    },
+    "volume": {
+      "raw": 9785795,
+      "fmt": "9.79M",
+      "longFmt": "9,785,795"
+    },
+    "regularMarketVolume": {
+      "raw": 9785795,
+      "fmt": "9.79M",
+      "longFmt": "9,785,795"
+    },
+    "averageVolume": {
+      "raw": 4479898,
+      "fmt": "4.48M",
+      "longFmt": "4,479,898"
+    },
+    "averageVolume10days": {
+      "raw": 4802630,
+      "fmt": "4.8M",
+      "longFmt": "4,802,630"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 4802630,
+      "fmt": "4.8M",
+      "longFmt": "4,802,630"
+    },
+    "bid": {
+      "raw": 569.72,
+      "fmt": "569.72"
+    },
+    "ask": {
+      "raw": 570.48,
+      "fmt": "570.48"
+    },
+    "bidSize": {
+      "raw": 4000,
+      "fmt": "4k",
+      "longFmt": "4,000"
+    },
+    "askSize": {
+      "raw": 24000,
+      "fmt": "24k",
+      "longFmt": "24,000"
+    },
+    "marketCap": {
+      "raw": 1225192505344,
+      "fmt": "1.23T",
+      "longFmt": "1,225,192,505,344"
+    },
+    "nonDilutedMarketCap": {
+      "raw": 1239989040354,
+      "fmt": "1.24T",
+      "longFmt": "1,239,989,040,354"
+    },
+    "yield": {},
+    "ytdReturn": {},
+    "qtdReturn": {},
+    "totalAssets": {},
+    "expireDate": {},
+    "strikePrice": {},
+    "openInterest": {},
+    "fiftyTwoWeekLow": {
+      "raw": 464.01,
+      "fmt": "464.01"
+    },
+    "fiftyTwoWeekHigh": {
+      "raw": 586.3,
+      "fmt": "586.30"
+    },
+    "allTimeHigh": {
+      "raw": 580.65,
+      "fmt": "580.65"
+    },
+    "allTimeLow": {
+      "raw": 19.8,
+      "fmt": "19.80"
+    },
+    "fulldayPrice": {
+      "raw": 572.33,
+      "fmt": "572.33"
+    },
+    "fulldayChange": {
+      "raw": -10.540039,
+      "fmt": "-10.54"
+    },
+    "fulldayChangePercent": {
+      "raw": -0.018201036,
+      "fmt": "-1.82%"
+    },
+    "priceToSalesTrailing12Months": {
+      "raw": 3.1849074,
+      "fmt": "3.18"
+    },
+    "fiftyDayAverage": {
+      "raw": 518.8682,
+      "fmt": "518.87"
+    },
+    "twoHundredDayAverage": {
+      "raw": 496.84845,
+      "fmt": "496.85"
+    },
+    "trailingAnnualDividendRate": {
+      "raw": 0,
+      "fmt": "0.00"
+    },
+    "trailingAnnualDividendYield": {
+      "raw": 0,
+      "fmt": "0.00%"
+    },
+    "navPrice": {},
+    "currency": "USD",
+    "fromCurrency": null,
+    "toCurrency": null,
+    "lastMarket": null,
+    "coinMarketCapLink": null,
+    "volume24Hr": {},
+    "volumeAllCurrencies": {},
+    "circulatingSupply": {},
+    "algorithm": null,
+    "maxSupply": {},
+    "totalSupply": {},
+    "startDate": {},
+    "tradeable": false,
+    "fullyDilutedValue": {},
+    "volume24HrMarketCapPercent": {}
+  },
+  "calendarEvents": {
+    "maxAge": 1,
+    "earnings": {
+      "earningsDate": [
+        {
+          "raw": 1794085200,
+          "fmt": "2026-11-07"
+        }
+      ],
+      "earningsCallDate": [],
+      "isEarningsDateEstimate": false,
+      "earningsAverage": {
+        "raw": 6.13528,
+        "fmt": "6.14"
+      },
+      "earningsLow": {
+        "raw": 5.84,
+        "fmt": "5.84"
+      },
+      "earningsHigh": {
+        "raw": 6.43055,
+        "fmt": "6.43"
+      },
+      "revenueAverage": {},
+      "revenueLow": {},
+      "revenueHigh": {}
+    },
+    "exDividendDate": {},
+    "dividendDate": {}
+  },
+  "price": {
+    "maxAge": 1,
+    "preMarketChangePercent": {
+      "raw": 0.010652789,
+      "fmt": "1.07%"
+    },
+    "preMarketChange": {
+      "raw": 6.175049,
+      "fmt": "6.18"
+    },
+    "preMarketTime": 1793888990,
+    "preMarketPrice": {
+      "raw": 585.84,
+      "fmt": "585.84"
+    },
+    "preMarketSource": "FREE_REALTIME",
+    "postMarketChangePercent": {
+      "raw": -0.004595259,
+      "fmt": "-0.46%"
+    },
+    "postMarketChange": {
+      "raw": -2.630005,
+      "fmt": "-2.63"
+    },
+    "postMarketTime": 1793926799,
+    "postMarketPrice": {
+      "raw": 569.7,
+      "fmt": "569.70"
+    },
+    "postMarketSource": "DELAYED",
+    "regularMarketChangePercent": {
+      "raw": -0.011673501,
+      "fmt": "-1.17%"
+    },
+    "regularMarketChange": {
+      "raw": -6.76001,
+      "fmt": "-6.76"
+    },
+    "regularMarketTime": 1793912647,
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "regularMarketPrice": {
+      "raw": 572.33,
+      "fmt": "572.33"
+    },
+    "regularMarketDayHigh": {
+      "raw": 586.3,
+      "fmt": "586.30"
+    },
+    "regularMarketDayLow": {
+      "raw": 571.1006,
+      "fmt": "571.10"
+    },
+    "regularMarketVolume": {
+      "raw": 9785795,
+      "fmt": "9.79M",
+      "longFmt": "9,785,795.00"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 4802630,
+      "fmt": "4.8M",
+      "longFmt": "4,802,630"
+    },
+    "averageDailyVolume3Month": {
+      "raw": 4479898,
+      "fmt": "4.48M",
+      "longFmt": "4,479,898"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 579.09,
+      "fmt": "579.09"
+    },
+    "regularMarketSource": "FREE_REALTIME",
+    "regularMarketOpen": {
+      "raw": 584.23,
+      "fmt": "584.23"
+    },
+    "strikePrice": {},
+    "openInterest": {},
+    "fulldayChangePercent": {
+      "raw": -0.018201036,
+      "fmt": "-1.82%"
+    },
+    "fulldayChange": {
+      "raw": -10.540039,
+      "fmt": "-10.54"
+    },
+    "fulldayPrice": {
+      "raw": 572.33,
+      "fmt": "572.33"
+    },
+    "exchange": "NYQ",
+    "exchangeName": "NYSE",
+    "exchangeDataDelayedBy": 20,
+    "marketState": "POSTPOST",
+    "quoteType": "EQUITY",
+    "symbol": "BRK-B",
+    "underlyingSymbol": null,
+    "shortName": "Berkshire Hathaway Inc. New",
+    "longName": "Berkshire Hathaway Inc.",
+    "currency": "USD",
+    "quoteSourceName": "Delayed Quote",
+    "currencySymbol": "$",
+    "fromCurrency": null,
+    "toCurrency": null,
+    "lastMarket": null,
+    "volume24Hr": {},
+    "volumeAllCurrencies": {},
+    "circulatingSupply": {},
+    "marketCap": {
+      "raw": 1225192505344,
+      "fmt": "1.23T",
+      "longFmt": "1,225,192,505,344.00"
+    }
+  },
+  "defaultKeyStatistics": {
+    "maxAge": 1,
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "enterpriseValue": {
+      "raw": -233831202816,
+      "fmt": "-233.83B",
+      "longFmt": "-233,831,202,816"
+    },
+    "forwardPE": {
+      "raw": 25.51459,
+      "fmt": "25.51"
+    },
+    "profitMargins": {
+      "raw": 0.22296,
+      "fmt": "22.30%"
+    },
+    "floatShares": {
+      "raw": 1233781,
+      "fmt": "1.23M",
+      "longFmt": "1,233,781"
+    },
+    "sharesOutstanding": {
+      "raw": 1408035161,
+      "fmt": "1.41B",
+      "longFmt": "1,408,035,161"
+    },
+    "sharesShort": {
+      "raw": 12370081,
+      "fmt": "12.37M",
+      "longFmt": "12,370,081"
+    },
+    "sharesShortPriorMonth": {
+      "raw": 12347326,
+      "fmt": "12.35M",
+      "longFmt": "12,347,326"
+    },
+    "sharesShortPreviousMonthDate": {
+      "raw": 1788134400,
+      "fmt": "2026-08-31"
+    },
+    "dateShortInterest": {
+      "raw": 1790726400,
+      "fmt": "2026-09-30"
+    },
+    "sharesPercentSharesOut": {
+      "raw": 0.0058,
+      "fmt": "0.58%"
+    },
+    "heldPercentInsiders": {
+      "raw": 0.00271,
+      "fmt": "0.27%"
+    },
+    "heldPercentInstitutions": {
+      "raw": 0.66956,
+      "fmt": "66.96%"
+    },
+    "shortRatio": {
+      "raw": 2.67,
+      "fmt": "2.67"
+    },
+    "shortPercentOfFloat": {
+      "raw": 0.0099,
+      "fmt": "0.99%"
+    },
+    "beta": {
+      "raw": 0.571,
+      "fmt": "0.57"
+    },
+    "impliedSharesOutstanding": {
+      "raw": 2140709794,
+      "fmt": "2.14B",
+      "longFmt": "2,140,709,794"
+    },
+    "morningStarOverallRating": {},
+    "morningStarRiskRating": {},
+    "category": null,
+    "bookValue": {
+      "raw": 522225.9,
+      "fmt": "522,225.91"
+    },
+    "priceToBook": {
+      "raw": 0.0010959434,
+      "fmt": "0.00"
+    },
+    "annualReportExpenseRatio": {},
+    "ytdReturn": {},
+    "qtdReturn": {},
+    "beta3Year": {},
+    "totalAssets": {},
+    "yield": {},
+    "fundFamily": null,
+    "fundInceptionDate": {},
+    "legalType": null,
+    "threeYearAverageReturn": {},
+    "fiveYearAverageReturn": {},
+    "priceToSalesTrailing12Months": {},
+    "lastFiscalYearEnd": {
+      "raw": 1767139200,
+      "fmt": "2025-12-31"
+    },
+    "nextFiscalYearEnd": {
+      "raw": 1798675200,
+      "fmt": "2026-12-31"
+    },
+    "mostRecentQuarter": {
+      "raw": 1782777600,
+      "fmt": "2026-06-30"
+    },
+    "earningsQuarterlyGrowth": {
+      "raw": 1.075,
+      "fmt": "107.50%"
+    },
+    "revenueQuarterlyGrowth": {},
+    "netIncomeToCommon": {
+      "raw": 85768003584,
+      "fmt": "85.77B",
+      "longFmt": "85,768,003,584"
+    },
+    "trailingEps": {
+      "raw": 39.76,
+      "fmt": "39.76"
+    },
+    "forwardEps": {
+      "raw": 22.43148,
+      "fmt": "22.43"
+    },
+    "pegRatio": {
+      "raw": 10.06,
+      "fmt": "10.06"
+    },
+    "lastSplitFactor": "50:1",
+    "lastSplitDate": {
+      "raw": 1264032000,
+      "fmt": "2010-01-21"
+    },
+    "enterpriseToRevenue": {
+      "raw": -0.608,
+      "fmt": "-0.61"
+    },
+    "enterpriseToEbitda": {
+      "raw": -1.789,
+      "fmt": "-1.79"
+    },
+    "52WeekChange": {
+      "raw": 0.17426741,
+      "fmt": "17.43%"
+    },
+    "SandP52WeekChange": {
+      "raw": 0.1440854,
+      "fmt": "14.41%"
+    },
+    "lastDividendValue": {},
+    "lastDividendDate": {},
+    "lastCapGain": {},
+    "annualHoldingsTurnover": {},
+    "latestFundingDate": {},
+    "latestAmountRaised": {},
+    "latestImpliedValuation": {},
+    "latestShareClass": null,
+    "leadInvestor": null,
+    "fundingToDate": {},
+    "totalFundingRounds": {}
+  },
+  "financialData": {
+    "maxAge": 86400,
+    "currentPrice": {
+      "raw": 572.33,
+      "fmt": "572.33"
+    },
+    "targetHighPrice": {
+      "raw": 628,
+      "fmt": "628.00"
+    },
+    "targetLowPrice": {
+      "raw": 510,
+      "fmt": "510.00"
+    },
+    "targetMeanPrice": {
+      "raw": 555.6667,
+      "fmt": "555.67"
+    },
+    "targetMedianPrice": {
+      "raw": 529,
+      "fmt": "529.00"
+    },
+    "recommendationMean": {
+      "raw": 2,
+      "fmt": "2.00"
+    },
+    "recommendationKey": "buy",
+    "numberOfAnalystOpinions": {
+      "raw": 3,
+      "fmt": "3",
+      "longFmt": "3"
+    },
+    "totalCash": {
+      "raw": 365513998336,
+      "fmt": "365.51B",
+      "longFmt": "365,513,998,336"
+    },
+    "totalCashPerShare": {
+      "raw": 256115.53,
+      "fmt": "256,115.53"
+    },
+    "ebitda": {
+      "raw": 130683002880,
+      "fmt": "130.68B",
+      "longFmt": "130,683,002,880"
+    },
+    "totalDebt": {
+      "raw": 128598999040,
+      "fmt": "128.6B",
+      "longFmt": "128,598,999,040"
+    },
+    "quickRatio": {
+      "raw": 2.693,
+      "fmt": "2.69"
+    },
+    "currentRatio": {
+      "raw": 2.891,
+      "fmt": "2.89"
+    },
+    "totalRevenue": {
+      "raw": 384687013888,
+      "fmt": "384.69B",
+      "longFmt": "384,687,013,888"
+    },
+    "debtToEquity": {
+      "raw": 17.142,
+      "fmt": "17.14%"
+    },
+    "revenuePerShare": {
+      "raw": 267561.62,
+      "fmt": "267,561.62"
+    },
+    "returnOnAssets": {
+      "raw": 0.060100004,
+      "fmt": "6.01%"
+    },
+    "returnOnEquity": {
+      "raw": 0.121199995,
+      "fmt": "12.12%"
+    },
+    "grossProfits": {
+      "raw": 116684996608,
+      "fmt": "116.68B",
+      "longFmt": "116,684,996,608"
+    },
+    "freeCashflow": {
+      "raw": 71975247872,
+      "fmt": "71.98B",
+      "longFmt": "71,975,247,872"
+    },
+    "operatingCashflow": {
+      "raw": 46634000384,
+      "fmt": "46.63B",
+      "longFmt": "46,634,000,384"
+    },
+    "earningsGrowth": {
+      "raw": 1.078,
+      "fmt": "107.80%"
+    },
+    "revenueGrowth": {
+      "raw": 0.1,
+      "fmt": "10.00%"
+    },
+    "grossMargins": {
+      "raw": 0.30332002,
+      "fmt": "30.33%"
+    },
+    "ebitdaMargins": {
+      "raw": 0.33971,
+      "fmt": "33.97%"
+    },
+    "operatingMargins": {
+      "raw": 0.32561,
+      "fmt": "32.56%"
+    },
+    "profitMargins": {
+      "raw": 0.22296,
+      "fmt": "22.30%"
+    },
+    "financialCurrency": "USD"
+  }
+}

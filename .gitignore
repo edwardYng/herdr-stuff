@@ -1,4 +1,5 @@
 # Written by Herdr into each mod folder
-gpui-kit.d.ts
-jsconfig.json
+/mods/*/gpui-kit.d.ts
+/mods/*/jsconfig.json
 node_modules/
+coverage/

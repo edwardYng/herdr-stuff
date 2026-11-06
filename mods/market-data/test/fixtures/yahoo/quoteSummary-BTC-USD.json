@@ -1,0 +1,294 @@
+{
+  "assetProfile": {
+    "website": "https://bitcoin.org/",
+    "blockNumber": 771565,
+    "blockReward": 6.25,
+    "blockRewardReduction": "50%",
+    "netHashesPerSecond": "244051282584378770000",
+    "name": "Bitcoin",
+    "startDate": "2010-07-13",
+    "description": "Bitcoin (BTC) is a cryptocurrency launched in 2010. Users are able to generate BTC through the process of mining. Bitcoin has a current supply of 20,105,365. The last known price of Bitcoin is 79,029.91308147 USD and is up 0.52 over the last 24 hours. It is currently trading on 12775 active market(s) with $35,240,306,940.77 traded over the last 24 hours. More information can be found at https://bitcoin.org/.",
+    "whitepaper": "https://bitcoin.org/bitcoin.pdf",
+    "maxAge": 86400
+  },
+  "summaryDetail": {
+    "maxAge": 1,
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "previousClose": {
+      "raw": 75982.81,
+      "fmt": "75,982.81"
+    },
+    "open": {
+      "raw": 75982.81,
+      "fmt": "75,982.81"
+    },
+    "dayLow": {
+      "raw": 75861.164,
+      "fmt": "75,861.16"
+    },
+    "dayHigh": {
+      "raw": 76282.4,
+      "fmt": "76,282.40"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 75982.81,
+      "fmt": "75,982.81"
+    },
+    "regularMarketOpen": {
+      "raw": 75982.81,
+      "fmt": "75,982.81"
+    },
+    "regularMarketDayLow": {
+      "raw": 75861.164,
+      "fmt": "75,861.16"
+    },
+    "regularMarketDayHigh": {
+      "raw": 76282.4,
+      "fmt": "76,282.40"
+    },
+    "dividendRate": {},
+    "dividendYield": {},
+    "exDividendDate": {},
+    "payoutRatio": {},
+    "fiveYearAvgDividendYield": {},
+    "beta": {},
+    "forwardPE": {},
+    "volume": {
+      "raw": 48594071552,
+      "fmt": "48.59B",
+      "longFmt": "48,594,071,552"
+    },
+    "regularMarketVolume": {
+      "raw": 48594071552,
+      "fmt": "48.59B",
+      "longFmt": "48,594,071,552"
+    },
+    "averageVolume": {
+      "raw": 28532765439,
+      "fmt": "28.53B",
+      "longFmt": "28,532,765,439"
+    },
+    "averageVolume10days": {
+      "raw": 27323364280,
+      "fmt": "27.32B",
+      "longFmt": "27,323,364,280"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 27323364280,
+      "fmt": "27.32B",
+      "longFmt": "27,323,364,280"
+    },
+    "bid": {},
+    "ask": {},
+    "bidSize": {},
+    "askSize": {},
+    "marketCap": {
+      "raw": 1526400942080,
+      "fmt": "1.53T",
+      "longFmt": "1,526,400,942,080"
+    },
+    "nonDilutedMarketCap": {},
+    "yield": {},
+    "ytdReturn": {},
+    "qtdReturn": {},
+    "totalAssets": {},
+    "expireDate": {},
+    "strikePrice": {},
+    "openInterest": {},
+    "fiftyTwoWeekLow": {
+      "raw": 57747.766,
+      "fmt": "57,747.77"
+    },
+    "fiftyTwoWeekHigh": {
+      "raw": 107428.26,
+      "fmt": "107,428.26"
+    },
+    "allTimeHigh": {
+      "raw": 126198.07,
+      "fmt": "126,198.07"
+    },
+    "allTimeLow": {
+      "raw": 171.51,
+      "fmt": "171.51"
+    },
+    "fulldayPrice": {
+      "raw": 75973.31,
+      "fmt": "75,973.31"
+    },
+    "fulldayChange": {
+      "raw": -4522.6797,
+      "fmt": "-4,522.68"
+    },
+    "fulldayChangePercent": {
+      "raw": -0.05618515,
+      "fmt": "-5.62%"
+    },
+    "priceToSalesTrailing12Months": {},
+    "fiftyDayAverage": {
+      "raw": 81992.19,
+      "fmt": "81,992.19"
+    },
+    "twoHundredDayAverage": {
+      "raw": 73181.01,
+      "fmt": "73,181.01"
+    },
+    "trailingAnnualDividendRate": {},
+    "trailingAnnualDividendYield": {},
+    "navPrice": {},
+    "currency": "USD",
+    "fromCurrency": "BTC",
+    "toCurrency": "USD=X",
+    "lastMarket": "Coinbase",
+    "coinMarketCapLink": "https://coinmarketcap.com/currencies/bitcoin",
+    "volume24Hr": {
+      "raw": 48594071552,
+      "fmt": "48.59B",
+      "longFmt": "48,594,071,552.00"
+    },
+    "volumeAllCurrencies": {
+      "raw": 48594071552,
+      "fmt": "48.59B",
+      "longFmt": "48,594,071,552.00"
+    },
+    "circulatingSupply": {
+      "raw": 20105364,
+      "fmt": "20.11M",
+      "longFmt": "20,105,364.00"
+    },
+    "algorithm": null,
+    "maxSupply": {
+      "raw": 21000000,
+      "fmt": "21.00M",
+      "longFmt": "21,000,000.00"
+    },
+    "totalSupply": {
+      "raw": 20105364,
+      "fmt": "20.11M",
+      "longFmt": "20,105,364.00"
+    },
+    "startDate": {
+      "raw": 1278979200,
+      "fmt": "2010-07-13"
+    },
+    "tradeable": false,
+    "fullyDilutedValue": {
+      "raw": 1595439562500,
+      "fmt": "1.60T",
+      "longFmt": "1,595,439,562,500.00"
+    },
+    "volume24HrMarketCapPercent": {
+      "raw": 0.03183572,
+      "fmt": "3.18%"
+    }
+  },
+  "price": {
+    "maxAge": 1,
+    "preMarketChange": {},
+    "preMarketPrice": {},
+    "postMarketChange": {},
+    "postMarketPrice": {},
+    "regularMarketChangePercent": {
+      "raw": -0.05618515,
+      "fmt": "-5.62%"
+    },
+    "regularMarketChange": {
+      "raw": -4522.6797,
+      "fmt": "-4,522.68"
+    },
+    "regularMarketTime": 1793931007,
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "regularMarketPrice": {
+      "raw": 75973.31,
+      "fmt": "75,973.31"
+    },
+    "regularMarketDayHigh": {
+      "raw": 76282.4,
+      "fmt": "76,282.40"
+    },
+    "regularMarketDayLow": {
+      "raw": 75861.164,
+      "fmt": "75,861.16"
+    },
+    "regularMarketVolume": {
+      "raw": 48594071552,
+      "fmt": "48.59B",
+      "longFmt": "48,594,071,552.00"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 27323364280,
+      "fmt": "27.32B",
+      "longFmt": "27,323,364,280"
+    },
+    "averageDailyVolume3Month": {
+      "raw": 28532765439,
+      "fmt": "28.53B",
+      "longFmt": "28,532,765,439"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 75982.81,
+      "fmt": "75,982.81"
+    },
+    "regularMarketSource": "FREE_REALTIME",
+    "regularMarketOpen": {
+      "raw": 75982.81,
+      "fmt": "75,982.81"
+    },
+    "strikePrice": {},
+    "openInterest": {},
+    "fulldayChangePercent": {
+      "raw": -0.05618515,
+      "fmt": "-5.62%"
+    },
+    "fulldayChange": {
+      "raw": -4522.6797,
+      "fmt": "-4,522.68"
+    },
+    "fulldayPrice": {
+      "raw": 75973.31,
+      "fmt": "75,973.31"
+    },
+    "exchange": "CCC",
+    "exchangeName": "CCC",
+    "exchangeDataDelayedBy": 0,
+    "marketState": "REGULAR",
+    "quoteType": "CRYPTOCURRENCY",
+    "symbol": "BTC-USD",
+    "underlyingSymbol": null,
+    "shortName": "Bitcoin USD",
+    "longName": "Bitcoin USD",
+    "currency": "USD",
+    "quoteSourceName": "CoinMarketCap",
+    "currencySymbol": "$",
+    "fromCurrency": "BTC",
+    "toCurrency": "USD=X",
+    "lastMarket": "Coinbase",
+    "volume24Hr": {
+      "raw": 48594071552,
+      "fmt": "48.59B",
+      "longFmt": "48,594,071,552.00"
+    },
+    "volumeAllCurrencies": {
+      "raw": 48594071552,
+      "fmt": "48.59B",
+      "longFmt": "48,594,071,552.00"
+    },
+    "circulatingSupply": {
+      "raw": 20105364,
+      "fmt": "20.11M",
+      "longFmt": "20,105,364.00"
+    },
+    "marketCap": {
+      "raw": 1526400942080,
+      "fmt": "1.53T",
+      "longFmt": "1,526,400,942,080.00"
+    }
+  }
+}

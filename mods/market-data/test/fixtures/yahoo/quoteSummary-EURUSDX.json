@@ -1,0 +1,246 @@
+{
+  "summaryDetail": {
+    "maxAge": 1,
+    "priceHint": {
+      "raw": 4,
+      "fmt": "4",
+      "longFmt": "4"
+    },
+    "previousClose": {
+      "raw": 1.1218308,
+      "fmt": "1.1218"
+    },
+    "open": {
+      "raw": 1.1222085,
+      "fmt": "1.1222"
+    },
+    "dayLow": {
+      "raw": 1.1212019,
+      "fmt": "1.1212"
+    },
+    "dayHigh": {
+      "raw": 1.1237217,
+      "fmt": "1.1237"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 1.1218308,
+      "fmt": "1.1218"
+    },
+    "regularMarketOpen": {
+      "raw": 1.1222085,
+      "fmt": "1.1222"
+    },
+    "regularMarketDayLow": {
+      "raw": 1.1212019,
+      "fmt": "1.1212"
+    },
+    "regularMarketDayHigh": {
+      "raw": 1.1237217,
+      "fmt": "1.1237"
+    },
+    "dividendRate": {},
+    "dividendYield": {},
+    "exDividendDate": {},
+    "payoutRatio": {},
+    "fiveYearAvgDividendYield": {},
+    "beta": {},
+    "forwardPE": {},
+    "volume": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "regularMarketVolume": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "averageVolume": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "averageVolume10days": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "bid": {
+      "raw": 1.1165699,
+      "fmt": "1.1166"
+    },
+    "ask": {
+      "raw": 1.1159469,
+      "fmt": "1.1159"
+    },
+    "bidSize": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "askSize": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "marketCap": {},
+    "nonDilutedMarketCap": {},
+    "yield": {},
+    "ytdReturn": {},
+    "qtdReturn": {},
+    "totalAssets": {},
+    "expireDate": {},
+    "strikePrice": {},
+    "openInterest": {},
+    "fiftyTwoWeekLow": {
+      "raw": 1.1109507,
+      "fmt": "1.1110"
+    },
+    "fiftyTwoWeekHigh": {
+      "raw": 1.2023566,
+      "fmt": "1.2024"
+    },
+    "allTimeHigh": {
+      "raw": 1.3148,
+      "fmt": "1.3148"
+    },
+    "allTimeLow": {
+      "raw": 0.6239,
+      "fmt": "0.6239"
+    },
+    "fulldayPrice": {
+      "raw": 1.1213276,
+      "fmt": "1.1213"
+    },
+    "fulldayChange": {
+      "raw": -0.0005031824,
+      "fmt": "-0.0005"
+    },
+    "fulldayChangePercent": {
+      "raw": -0.00044858895,
+      "fmt": "-0.0449%"
+    },
+    "priceToSalesTrailing12Months": {},
+    "fiftyDayAverage": {
+      "raw": 1.1359727,
+      "fmt": "1.1360"
+    },
+    "twoHundredDayAverage": {
+      "raw": 1.154582,
+      "fmt": "1.1546"
+    },
+    "trailingAnnualDividendRate": {},
+    "trailingAnnualDividendYield": {},
+    "navPrice": {},
+    "currency": "USD",
+    "fromCurrency": null,
+    "toCurrency": null,
+    "lastMarket": null,
+    "coinMarketCapLink": null,
+    "volume24Hr": {},
+    "volumeAllCurrencies": {},
+    "circulatingSupply": {},
+    "algorithm": null,
+    "maxSupply": {},
+    "totalSupply": {},
+    "startDate": {},
+    "tradeable": false,
+    "fullyDilutedValue": {},
+    "volume24HrMarketCapPercent": {}
+  },
+  "price": {
+    "maxAge": 1,
+    "preMarketChange": {},
+    "preMarketPrice": {},
+    "postMarketChange": {},
+    "postMarketPrice": {},
+    "regularMarketChangePercent": {
+      "raw": -0.00044858895,
+      "fmt": "-0.0449%"
+    },
+    "regularMarketChange": {
+      "raw": -0.0005031824,
+      "fmt": "-0.0005"
+    },
+    "regularMarketTime": 1793930965,
+    "priceHint": {
+      "raw": 4,
+      "fmt": "4",
+      "longFmt": "4"
+    },
+    "regularMarketPrice": {
+      "raw": 1.1213276,
+      "fmt": "1.1213"
+    },
+    "regularMarketDayHigh": {
+      "raw": 1.1237217,
+      "fmt": "1.1237"
+    },
+    "regularMarketDayLow": {
+      "raw": 1.1212019,
+      "fmt": "1.1212"
+    },
+    "regularMarketVolume": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0.0000"
+    },
+    "averageDailyVolume10Day": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "averageDailyVolume3Month": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "regularMarketPreviousClose": {
+      "raw": 1.1218308,
+      "fmt": "1.1218"
+    },
+    "regularMarketSource": "DELAYED",
+    "regularMarketOpen": {
+      "raw": 1.1222085,
+      "fmt": "1.1222"
+    },
+    "strikePrice": {},
+    "openInterest": {},
+    "fulldayChangePercent": {
+      "raw": -0.00044858895,
+      "fmt": "-0.0449%"
+    },
+    "fulldayChange": {
+      "raw": -0.0005031824,
+      "fmt": "-0.0005"
+    },
+    "fulldayPrice": {
+      "raw": 1.1213276,
+      "fmt": "1.1213"
+    },
+    "exchange": "CCY",
+    "exchangeName": "CCY",
+    "exchangeDataDelayedBy": 0,
+    "marketState": "REGULAR",
+    "quoteType": "CURRENCY",
+    "symbol": "EURUSD=X",
+    "underlyingSymbol": null,
+    "shortName": "EUR/USD",
+    "longName": "EUR/USD",
+    "currency": "USD",
+    "quoteSourceName": "Delayed Quote",
+    "currencySymbol": "$",
+    "fromCurrency": null,
+    "toCurrency": null,
+    "lastMarket": null,
+    "volume24Hr": {},
+    "volumeAllCurrencies": {},
+    "circulatingSupply": {},
+    "marketCap": {}
+  }
+}
