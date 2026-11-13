@@ -63,17 +63,6 @@ export function niceTicks(lo, hi, count) {
 }
 
 /**
- * How many bars fit: bars are always `barW` wide with `gap` between; a wider chart shows more of
- * them, never fatter ones. At least `min`.
- * @param {number} width px
- * @param {{ barW?: number, gap?: number, min?: number }} [opts] defaults 3, 1, 8
- * @returns {number}
- */
-export function barCount(width, { barW = 3, gap = 1, min = 8 } = {}) {
-  return Math.max(min, Math.floor((width + gap) / (barW + gap)));
-}
-
-/**
  * The price axis' width: as wide as its longest label (tiny coins have long ones), at least 64 px.
  * @param {string[]} labels the formatted prices it may show (the last and the highest)
  * @returns {number}
@@ -83,8 +72,8 @@ export function axisWidth(labels) {
 }
 
 /**
- * One bar per value, or per bucket when there are more values than bars: bucket i ends at value
- * floor((i+1)·len/maxBars)−1 and shows that value. `idx` maps each bar back to its value.
+ * One point per value, or per bucket when there are more values than points: bucket i ends at
+ * value floor((i+1)·len/maxBars)−1 and shows that value. `idx` maps each point back to its value.
  * @param {number[]} values
  * @param {number} maxBars
  * @returns {{ idx: number[], pts: number[] }}
@@ -101,7 +90,7 @@ export function bucket(values, maxBars) {
 
 /**
  * The y scale: the data's lo/hi (widened to `base` when given: a stock's previous close on 1D),
- * padded 10% below and 6% above so the lowest bar still shows. y(v) is px from the top.
+ * padded 10% below and 6% above so the line keeps off the edges. y(v) is px from the top.
  * @param {number[]} pts
  * @param {number} height px
  * @param {number | null} [base]
@@ -121,25 +110,34 @@ export function yScale(pts, height, base = null) {
 }
 
 /**
- * The bar under the pointer: bar i spans [i/n, (i+1)/n] of the width. Clamped to 0..n−1.
- * @param {number} x px from the plot's left
- * @param {number} width the plot's width (null when unknown)
- * @param {number} n bars
- * @returns {number | null} null without a width
+ * How many points the line draws: about one per 2 px, at least 2.
+ * @param {number} width px
+ * @returns {number}
  */
-export function hoverIndex(x, width, n) {
-  if (!width) return null;
-  return Math.max(0, Math.min(n - 1, Math.floor((x / width) * n)));
+export function pointCount(width) {
+  return Math.max(2, Math.floor(width / 2));
 }
 
 /**
- * The middle of bar i, in % of the plot's width (where the hover line goes).
+ * Point i of n, in % of the plot's width: the first at the left edge, the last at the right.
  * @param {number} i
  * @param {number} n
  * @returns {number}
  */
-export function barCenterPct(i, n) {
-  return ((i + 0.5) / n) * 100;
+export function pointPct(i, n) {
+  return n <= 1 ? 50 : (i / (n - 1)) * 100;
+}
+
+/**
+ * The point nearest the pointer (the inverse of pointPct). Clamped to 0..n−1.
+ * @param {number} x px from the plot's left
+ * @param {number} width the plot's width (null when unknown)
+ * @param {number} n points
+ * @returns {number | null} null without a width
+ */
+export function nearestIndex(x, width, n) {
+  if (!width) return null;
+  return Math.max(0, Math.min(n - 1, Math.round((x / width) * (n - 1))));
 }
 
 /**

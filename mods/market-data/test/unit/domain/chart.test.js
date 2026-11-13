@@ -4,12 +4,12 @@ import {
   chartRequest,
   trimToLast24h,
   niceTicks,
-  barCount,
   axisWidth,
   bucket,
   yScale,
-  hoverIndex,
-  barCenterPct,
+  pointCount,
+  pointPct,
+  nearestIndex,
   chartBase,
   changePct,
   pointChange,
@@ -106,21 +106,6 @@ describe("niceTicks", () => {
   });
 });
 
-describe("barCount", () => {
-  it("fits 3px bars with 1px gaps, at least 8", () => {
-    expect(barCount(240)).toBe(60);
-    expect(barCount(239)).toBe(60);
-    expect(barCount(238)).toBe(59);
-    expect(barCount(10)).toBe(8);
-  });
-
-  it("takes other sizes and minimums", () => {
-    expect(barCount(100, { min: 4 })).toBe(25);
-    expect(barCount(10, { min: 4 })).toBe(4);
-    expect(barCount(100, { barW: 5, gap: 2 })).toBe(14);
-  });
-});
-
 describe("axisWidth", () => {
   it("fits the longest label, at least 64", () => {
     expect(axisWidth(["75,973.31", "76,000.00"])).toBeCloseTo(79.6);
@@ -186,31 +171,40 @@ describe("yScale", () => {
   });
 });
 
-describe("hoverIndex", () => {
-  it.each([
-    [0, 100, 10, 0],
-    [9.99, 100, 10, 0],
-    [10, 100, 10, 1],
-    [55, 100, 10, 5],
-    [99.9, 100, 10, 9],
-    [100, 100, 10, 9],
-    [150, 100, 10, 9],
-    [-5, 100, 10, 0],
-  ])("x=%d of %d with %d bars → %d", (x, w, n, want) => {
-    expect(hoverIndex(x, w, n)).toBe(want);
-  });
-
-  it("is null without a width", () => {
-    expect(hoverIndex(5, 0, 10)).toBeNull();
-    expect(hoverIndex(5, undefined, 10)).toBeNull();
+describe("pointCount", () => {
+  it("is one point per 2 px, at least 2", () => {
+    expect(pointCount(500)).toBe(250);
+    expect(pointCount(501)).toBe(250);
+    expect(pointCount(1)).toBe(2);
   });
 });
 
-describe("barCenterPct", () => {
-  it("is the middle of the bar", () => {
-    expect(barCenterPct(0, 10)).toBe(5);
-    expect(barCenterPct(9, 10)).toBe(95);
-    expect(barCenterPct(0, 1)).toBe(50);
+describe("pointPct", () => {
+  it("spreads points edge to edge", () => {
+    expect(pointPct(0, 11)).toBe(0);
+    expect(pointPct(5, 11)).toBe(50);
+    expect(pointPct(10, 11)).toBe(100);
+    expect(pointPct(0, 1)).toBe(50);
+  });
+});
+
+describe("nearestIndex", () => {
+  it.each([
+    [0, 100, 11, 0],
+    [4.9, 100, 11, 0],
+    [5, 100, 11, 1],
+    [50, 100, 11, 5],
+    [96, 100, 11, 10],
+    [100, 100, 11, 10],
+    [150, 100, 11, 10],
+    [-5, 100, 11, 0],
+  ])("x=%d of %d with %d points → %d", (x, w, n, want) => {
+    expect(nearestIndex(x, w, n)).toBe(want);
+  });
+
+  it("is null without a width", () => {
+    expect(nearestIndex(5, 0, 10)).toBeNull();
+    expect(nearestIndex(5, undefined, 10)).toBeNull();
   });
 });
 

@@ -161,14 +161,21 @@ describe("detail view: interaction", () => {
 });
 
 describe("chart", () => {
-  const bars = (el) => findAll(byId(el, "plot"), (n) => /^b\d+$/.test(String(n.elId)));
+  /** The stroked line's points, as painted. */
+  const linePts = (el) => byId(byId(el, "plot"), "line").kids[0].args[0].polygons[0].points;
 
-  it("1D stock: bars, change today, gridlines, the previous close dashed, axis pill at the last price", async () => {
+  it("1D stock: a line over a fill, change today, gridlines, the previous close dashed, axis pill at the last price", async () => {
     const { render, d } = await setup(M.AAPL, { summary: "AAPL" });
     const el = render();
     const c = d.chart();
-    expect(bars(el).length).toBe(Math.min(c.closes.length, bars(el).length));
-    expect(bars(el).length).toBeGreaterThan(10);
+    const pts = linePts(el);
+    expect(pts.length).toBeLessThanOrEqual(c.closes.length);
+    expect(pts.length).toBeGreaterThan(10);
+    expect(pts[0][0]).toBe("0%");
+    expect(pts.at(-1)[0]).toBe("100%");
+    const area = byId(byId(el, "plot"), "area").kids[0].args[0];
+    expect(area.kind).toBe("fill");
+    expect(area.polygons[0].closed).toBe(true);
     expect(textOf(el)).toMatch(/[-+]\d+\.\d\d% today/);
     expect(findAll(el, (n) => n.elId === "prev-close")).toHaveLength(1);
     expect(textOf(el)).toContain("(dashed)");
@@ -185,14 +192,14 @@ describe("chart", () => {
 
   it("hovering shows the crosshair and a tooltip with price, change and time", async () => {
     const { render, d, cx } = await setup(M.AAPL, { summary: "AAPL" });
-    const n = bars(render()).length;
+    const n = linePts(render()).length;
     const move = (x) =>
       byId(render(), "plot").handlers.on_mouse_move(
         { local_position: { x, y: 10 }, bounds: { x: 0, y: 0, width: 500, height: 170 } },
         cx,
       );
     move(10);
-    expect(d.hover).toBe(Math.floor((10 / 500) * n));
+    expect(d.hover).toBe(Math.round((10 / 500) * (n - 1)));
     let el = render();
     const tip = byId(el, "tooltip");
     const i = d.hover;
@@ -204,20 +211,20 @@ describe("chart", () => {
     expect(t[2]).toBe(formatChartTime(d.chart().times[idx], "1d"));
     expect(byId(el, "crosshair-x")).toBeTruthy();
     expect(textOf(byId(el, "axis-pill"))).toBe(t[0]);
-    expect(called(bars(el)[i], "opacity", 1)).toBe(true);
+    expect(byId(el, "hover-dot")).toBeTruthy();
     // On the left half the tip is right of the line; past 60% it flips.
     expect(findAll(el, (x) => x.kids.includes(tip))[0].calls.some(([m]) => m === "left")).toBe(true);
     move(480);
     el = render();
-    expect(d.hover).toBe(Math.floor((480 / 500) * n));
+    expect(d.hover).toBe(Math.round((480 / 500) * (n - 1)));
     const holder = findAll(el, (x) => x.kids.includes(byId(el, "tooltip")))[0];
     expect(holder.calls.some(([m]) => m === "right")).toBe(true);
 
     // Without bounds nothing changes; leaving clears the hover.
     byId(render(), "plot").handlers.on_mouse_move({ local_position: { x: 1, y: 1 } }, cx);
-    expect(d.hover).toBe(Math.floor((480 / 500) * n));
+    expect(d.hover).toBe(Math.round((480 / 500) * (n - 1)));
     byId(render(), "plot").handlers.on_hover(true, cx);
-    expect(d.hover).toBe(Math.floor((480 / 500) * n));
+    expect(d.hover).toBe(Math.round((480 / 500) * (n - 1)));
     byId(render(), "plot").handlers.on_hover(false, cx);
     expect(d.hover).toBeNull();
     expect(findAll(render(), (x) => x.elId === "tooltip")).toEqual([]);

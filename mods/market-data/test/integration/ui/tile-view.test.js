@@ -48,21 +48,20 @@ describe("tile view", () => {
 
   it("draws a sparkline, coloured by the day's direction", async () => {
     const { render, watchlist } = await setup();
-    let row = byId(render(), "row-stock:AAPL");
-    let bars = findAll(row, (n) => typeof n.elId === "string" && /^s\d+$/.test(n.elId));
-    expect(bars).toHaveLength(3);
-    expect(called(bars[0], "bg", "#ansi2")).toBe(true);
+    const painted = (row) => byId(row, "spark-line").kids[0];
+    let line = painted(byId(render(), "row-stock:AAPL"));
+    expect(line.args[0].polygons[0].points).toHaveLength(3);
+    expect(line.args[1]).toBe("#ansi2");
     watchlist.rows[AAPL.id].ref = 300;
-    row = byId(render(), "row-stock:AAPL");
-    bars = findAll(row, (n) => typeof n.elId === "string" && /^s\d+$/.test(n.elId));
-    expect(called(bars[0], "bg", "#ansi1")).toBe(true);
+    line = painted(byId(render(), "row-stock:AAPL"));
+    expect(line.args[1]).toBe("#ansi1");
   });
 
   it("downsamples the sparkline to the width there is, and follows on_size_change", async () => {
     const spark = Array.from({ length: 288 }, (_, i) => 100 + i);
     const data = fakeSources({ alpaca: { history: vi.fn(async () => history(387, 380, spark)) } });
     const { render, ui, cx } = await setup({ list: [AAPL], data });
-    const count = (el) => findAll(byId(el, "row-stock:AAPL"), (n) => /^s\d+$/.test(String(n.elId))).length;
+    const count = (el) => byId(byId(el, "row-stock:AAPL"), "spark-line").kids[0].args[0].polygons[0].points.length;
     const narrow = count(render());
     const root = render();
     root.handlers.on_size_change({ width: 900, height: 600 }, cx);

@@ -1,28 +1,29 @@
-// The popup's chart: range tabs and the change over the range, bars with round-number gridlines,
+// The popup's chart: range tabs and the change over the range, a line over a soft fill with round-number gridlines,
 // the previous close dashed on a stock's 1D, a crosshair with a tooltip, and a price axis.
-import { div } from "gpui-kit";
+import { div, PathBuilder, Background } from "gpui-kit";
 import { v_flex, h_flex } from "gpui-base";
 import {
   RANGES,
   axisWidth,
-  barCenterPct,
-  barCount,
   bucket,
-  hoverIndex,
+  nearestIndex,
   niceTicks,
   pointChange,
+  pointCount,
+  pointPct,
   rangeChange,
   yScale,
 } from "../domain/chart.js";
 import { formatChartTime, formatPrice, num } from "../domain/format.js";
-import { upDown } from "./theme.js";
+import { upDown, withAlpha } from "./theme.js";
 
 /** @typedef {import("./theme.js").Theme} Theme */
 /** @typedef {import("../state/detail.js").Detail} Detail */
 /** @typedef {import("gpui-kit").Color} Color */
 
 export const CHART_H = 170;
-const BAR_GAP = 1;
+const LINE_W = 1.75;
+const DOT = 7;
 /** Hovering right of this (% of the plot), the tooltip goes on the line's left. */
 const TIP_FLIP_PCT = 60;
 
@@ -84,11 +85,12 @@ export function chartView(d, t, width) {
   /** @param {number} s */
   const when = (s) => formatChartTime(s, range);
 
-  // One bar per point, or per bucket when there are more points than fit. Bars fill the width, so
-  // bar i spans [i/N, (i+1)/N] of the plot, which is what the pointer maps back to.
+  // One point per value, or per bucket when there are more values than ~2 px each. Point i sits at
+  // i/(N−1) of the plot's width (x in %, so the path stretches with the plot); the pointer maps
+  // back to the nearest one.
   const axisW = axisWidth([fp(last), fp(Math.max(...vals))]);
   const plotW = Math.max(60, width - axisW);
-  const { idx, pts } = bucket(vals, barCount(plotW));
+  const { idx, pts } = bucket(vals, pointCount(plotW));
   const N = idx.length;
   const { lo, hi, y } = yScale(pts, CHART_H, stock1d ? base : null);
   const { ticks, decimals } = niceTicks(lo, hi, 5);
@@ -98,25 +100,20 @@ export function chartView(d, t, width) {
 
   const layers = [];
   for (const v of ticks) layers.push(div().absolute().left(0).right(0).top(y(v)).h(1).bg(t.border).opacity(0.6));
-  layers.push(
-    h_flex()
-      .absolute()
-      .inset_0()
-      .items_end()
-      .gap(BAR_GAP)
-      .children(
-        pts.map((v, i) =>
-          div()
-            .id(`b${i}`)
-            .flex_1()
-            .min_w(1)
-            .h(Math.max(2, CHART_H - y(v)))
-            .rounded(1)
-            .bg(color)
-            .opacity(hov == null ? 0.8 : i === hov ? 1 : 0.45),
-        ),
-      ),
+  /** @type {[`${number}%`, number][]} */
+  const line = pts.map((v, i) => [`${pointPct(i, N)}%`, y(v)]);
+  const area = PathBuilder.fill()
+    .add_polygon([...line, ["100%", CHART_H], ["0%", CHART_H]], true)
+    .build();
+  // The fill under the line fades from the line's color to nothing at the bottom.
+  const fade = Background.linear_gradient(
+    180,
+    Background.stop(withAlpha(color, 0.28), 0),
+    Background.stop(withAlpha(color, 0), 100),
   );
+  const stroke = PathBuilder.stroke(LINE_W).add_polygon(line, false).build();
+  layers.push(div().id("area").absolute().inset_0().child(window.paint_path(area, fade).size_full()));
+  layers.push(div().id("line").absolute().inset_0().child(window.paint_path(stroke, color).size_full()));
   // Previous close, dashed (drawn as dashes: a 0-height dashed border doesn't paint).
   if (stock1d) {
     layers.push(
@@ -137,9 +134,22 @@ export function chartView(d, t, width) {
     );
   }
   if (hov != null) {
-    const x = barCenterPct(hov, N);
+    const x = pointPct(hov, N);
     layers.push(div().id("crosshair-x").absolute().top(0).bottom(0).left(`${x}%`).w(1).bg(t.foreground).opacity(0.7));
     layers.push(div().id("crosshair-y").absolute().left(0).right(0).top(y(hv)).h(1).bg(t.foreground).opacity(0.35));
+    layers.push(
+      div()
+        .id("hover-dot")
+        .absolute()
+        .left(`${x}%`)
+        .top(y(hv) - DOT / 2)
+        .ml(-DOT / 2)
+        .size(DOT)
+        .rounded_full()
+        .border_2()
+        .border_color(t.background)
+        .bg(color),
+    );
     const tip = v_flex()
       .id("tooltip")
       .px(8)
@@ -176,7 +186,7 @@ export function chartView(d, t, width) {
     .min_w(0)
     .h(CHART_H)
     .on_mouse_move((e, cx) => {
-      const i = hoverIndex(e.local_position.x, e.bounds?.width, N);
+      const i = nearestIndex(e.local_position.x, e.bounds?.width, N);
       if (i != null) d.setHover(i, cx);
     })
     .on_hover((h, cx) => {
