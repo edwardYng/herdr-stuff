@@ -7,6 +7,7 @@ My own mods (and later layouts, themes, etc.) for the Herdr desktop app.
 ```
 mods/
   market-data/   watchlist tile with live prices (stocks via Alpaca, crypto via Binance, FX via Yahoo/Frankfurter)
+  mod-launcher/  palette that lists your mods and opens one in a pane to the right (Shift+Enter: a new tab)
 ```
 
 ## Install a mod
